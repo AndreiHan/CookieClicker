@@ -110,6 +110,7 @@ def ask_yesno(question):
         else:
             print("Please respond by yes(y/Y) or no(n/Y)")
 
+
 def menu():
     while True:
 
@@ -118,7 +119,8 @@ def menu():
         except ValueError:
             print('Wrong input. Please enter a number ...')
         else:
-            try: click_session(time * 10)
+            try:
+                click_session(time * 10)
             except pyautogui.FailSafeException:
                 print()
                 print("Script Stopped by the user")
@@ -130,7 +132,8 @@ def menu():
 
 if __name__ == '__main__':
 
-    try: menu()
+    try:
+        menu()
 
     except KeyboardInterrupt:
         print()
