@@ -1,5 +1,4 @@
 import multiprocessing
-
 import keyboard
 import pyautogui
 
@@ -17,10 +16,18 @@ def click_main(clicks):
             break
 
 
+def click_update0(clicks):
+    for x in range(clicks):
+        pyautogui.doubleClick(1832, 416)
+        if keyboard.is_pressed("q"):
+            print("You pressed q")
+            break
+
+
 def click_update1(clicks):
     for x in range(clicks):
-        pyautogui.tripleClick(1832, 498)
-        pyautogui.tripleClick(1833, 500)
+        pyautogui.tripleClick(1830, 498)
+
         if keyboard.is_pressed("q"):
             print("You pressed q")
             break
@@ -50,13 +57,6 @@ def click_update4(clicks):
             break
 
 
-def update():
-    click_update4(1),
-    click_update3(1),
-    click_update2(1),
-    click_update1(1),
-
-
 def click_session(times):
     while True:
         if keyboard.is_pressed("s"):
@@ -67,12 +67,14 @@ def click_session(times):
                 thread3 = multiprocessing.Process(target=click_update3(1))
                 thread4 = multiprocessing.Process(target=click_update2(1))
                 thread5 = multiprocessing.Process(target=click_update1(1))
+                thread6 = multiprocessing.Process(target=click_update0(1))
 
                 jobs.append(thread1)
                 jobs.append(thread2)
                 jobs.append(thread3)
                 jobs.append(thread4)
                 jobs.append(thread5)
+                jobs.append(thread6)
 
             for j in jobs:
                 if keyboard.is_pressed("q"):
@@ -116,6 +118,8 @@ def menu():
 
         try:
             time = int(input('Enter time (in minutes) : '))
+            print("Open Cookie Clicker and press on 's'")
+            print("Moving the cursor to the upper left corner is the failsafe")
         except ValueError:
             print('Wrong input. Please enter a number ...')
         else:
